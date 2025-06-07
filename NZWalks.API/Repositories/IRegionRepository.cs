@@ -1,4 +1,5 @@
 ﻿using NZWalks.API.Models.Domain;
+using NZWalks.API.Models.DTO;
 
 namespace NZWalks.API.Repositories
 {
@@ -7,8 +8,7 @@ namespace NZWalks.API.Repositories
         Task<List<Region>>GetAllAsync();
         Task<Region?> GetByIdAsync(Guid id);
         Task<Region> CreateAsync(Region region);
-        Task<Region?> UpdateAsync(Guid id, Region region);
-
-        Task<Region> Delete(Guid id);
+        Task<Region?> UpdateAsync(Guid id, UpdateRegionRequestDto regionRequestDto);
+        Task<Region?> Delete(Guid id);
     }
 }

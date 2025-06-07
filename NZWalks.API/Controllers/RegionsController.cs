@@ -41,8 +41,7 @@ namespace NZWalks.API.Controllers
             return Ok(regionsDto);
         }
 
-        [HttpGet]
-        [Route("{id}")]
+        [HttpGet("{id}", Name = nameof(GetByIdAsync))]
         public async Task<IActionResult> GetByIdAsync(Guid id)
         {
             var regionDomainModel = await regionRepository.GetByIdAsync(id);
@@ -82,14 +81,14 @@ namespace NZWalks.API.Controllers
                 RegionImageUrl = regionDomainModel.RegionImageUrl
             };
 
-            return CreatedAtAction(nameof(GetByIdAsync), new { id = regionDomainModel.Id }, regionDto);
+            return CreatedAtRoute(nameof(GetByIdAsync), new { id = regionDomainModel.Id }, regionDto);
         }
 
         [HttpPut]
         [Route("{Id}")]
         public async Task <IActionResult> UpdateAsync([FromBody] UpdateRegionRequestDto updateRegionRequestDto, Guid Id)
         {
-            var regionDomainModel = await regionRepository.GetByIdAsync(Id);
+            var regionDomainModel = await regionRepository.UpdateAsync(Id, updateRegionRequestDto);
 
             if (regionDomainModel == null)
             {
