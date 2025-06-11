@@ -47,7 +47,7 @@ namespace NZWalks.API.Controllers
             return Ok(regionsDto);
         }
 
-        [HttpGet("{id}", Name = nameof(GetByIdAsync))]
+        [HttpGet("{id}", Name = "GetRegionByIdAsync")]
         public async Task<IActionResult> GetByIdAsync(Guid id)
         {
             var regionDomainModel = await regionRepository.GetByIdAsync(id);
