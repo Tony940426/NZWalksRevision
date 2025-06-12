@@ -32,7 +32,7 @@ namespace NZWalks.API.Controllers
         }
 
         [HttpGet("{id}", Name = "GetWalkByIdAsync")]
-        public async Task<IActionResult> GetByIdAsync(Guid id)
+        public async Task<IActionResult> GetByIdAsync([FromRoute] Guid id)
         {
             var walkDomainModel = await walkRepository.GetByIdAsync(id);
 

@@ -12,7 +12,7 @@ namespace NZWalks.API.Repositories
 
         Task<Walk> CreateAsync(Walk walk);
 
-        Task<Walk?> UpdateAsync(Guid id, [FromBody] UpdateWalkRequestDto updateWalkRequestDto);
+        Task<Walk?> UpdateAsync(Guid id, UpdateWalkRequestDto updateWalkRequestDto);
 
         Task<Walk?> DeleteAsync(Guid id);
 

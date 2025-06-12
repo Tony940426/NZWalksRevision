@@ -12,6 +12,7 @@
 
         public Guid RegionId { get; set; }  
 
+
         //Navigation Properties
         public required Difficulty Difficulty { get; set; }
         public required Region Region { get; set; } 

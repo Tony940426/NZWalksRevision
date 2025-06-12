@@ -25,12 +25,18 @@ namespace NZWalks.API.Repositories
 
         public async Task<List<Walk>> GetAllAsync()
         {
-             return await dbcontext.Walks.ToListAsync();
+            //It will get the relevant navigation property
+             return await dbcontext.Walks
+                .Include("Difficulty")
+                .Include("Region")
+                .ToListAsync();
         }
 
         public async Task<Walk?> GetByIdAsync(Guid id)
         {
-            return await dbcontext.Walks.FirstAsync(x => x.Id == id);
+            return await dbcontext.Walks.Include("Difficulty")
+                .Include("Region")
+                .FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<Walk?> UpdateAsync(Guid id, [FromBody] UpdateWalkRequestDto updateWalkRequestDto)
