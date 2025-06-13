@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NZWalks.API.CustomActionFilters;
 using NZWalks.API.Data;
 using NZWalks.API.Models.Domain;
 using NZWalks.API.Models.DTO;
@@ -63,22 +64,29 @@ namespace NZWalks.API.Controllers
         }
 
         [HttpPost]
+        [ValidateModel]
         public async Task<IActionResult> CreateAsync([FromBody] AddRegionRequestDto addRegionRequestDto)
         {
+            if (ModelState.IsValid)
+            {
+                var regionDomainModel = mapper.Map<Region>(addRegionRequestDto);
 
-            var regionDomainModel = mapper.Map<Region>(addRegionRequestDto);
+                await regionRepository.CreateAsync(regionDomainModel);
 
-            await regionRepository.CreateAsync(regionDomainModel);
+                var regionDto = mapper.Map<RegionDto>(regionDomainModel);
 
-            var regionDto = mapper.Map<RegionDto>(regionDomainModel);
+                return CreatedAtRoute(nameof(GetByIdAsync), new { id = regionDomainModel.Id }, regionDto);
 
-            return CreatedAtRoute(nameof(GetByIdAsync), new { id = regionDomainModel.Id }, regionDto);
+            }
+            else
+                return BadRequest(ModelState); 
         }
 
         [HttpPut]
         [Route("{Id}")]
+        [ValidateModel]
         public async Task <IActionResult> UpdateAsync([FromBody] UpdateRegionRequestDto updateRegionRequestDto, Guid Id)
-        {
+        { 
 
             var regionDomainModel = await regionRepository.UpdateAsync(Id, updateRegionRequestDto);
 
