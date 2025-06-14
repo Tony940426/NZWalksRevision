@@ -23,9 +23,9 @@ namespace NZWalks.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllAsync()
+        public async Task<IActionResult> GetAllAsync([FromQuery] string? filterOn, [FromQuery] string? filterQuery, [FromQuery] string? sortBy, [FromQuery] bool? IsAscending)
         {
-            var walksDomainModels = await walkRepository.GetAllAsync();
+            var walksDomainModels = await walkRepository.GetAllAsync(filterOn, filterQuery, sortBy, IsAscending ?? true);
 
             var walksDto = mapper.Map<List<WalkDto>>(walksDomainModels);
 
