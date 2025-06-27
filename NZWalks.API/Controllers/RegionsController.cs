@@ -28,6 +28,7 @@ namespace NZWalks.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles ="Reader")]
         public async Task<IActionResult> GetAllAsync()
         {
             var regionsDomain = await regionRepository.GetAllAsync();
@@ -51,6 +52,7 @@ namespace NZWalks.API.Controllers
         }
 
         [HttpGet("{id}", Name = "GetRegionByIdAsync")]
+        [Authorize(Roles = "Reader")]
         public async Task<IActionResult> GetByIdAsync(Guid id)
         {
             var regionDomainModel = await regionRepository.GetByIdAsync(id);
@@ -67,6 +69,7 @@ namespace NZWalks.API.Controllers
 
         [HttpPost]
         [ValidateModel]
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> CreateAsync([FromBody] AddRegionRequestDto addRegionRequestDto)
         {
             if (ModelState.IsValid)
@@ -87,6 +90,7 @@ namespace NZWalks.API.Controllers
         [HttpPut]
         [Route("{Id}")]
         [ValidateModel]
+        [Authorize(Roles = "Writer")]
         public async Task <IActionResult> UpdateAsync([FromBody] UpdateRegionRequestDto updateRegionRequestDto, Guid Id)
         { 
 
@@ -104,6 +108,7 @@ namespace NZWalks.API.Controllers
 
         [HttpDelete]
         [Route("{Id}")]
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> Delete([FromRoute] Guid Id) 
         {
             var regionDomainModel = await regionRepository.Delete(Id); 
