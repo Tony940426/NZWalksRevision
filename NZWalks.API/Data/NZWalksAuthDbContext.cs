@@ -24,12 +24,14 @@ namespace NZWalks.API.Data
                 {
                     Id = readerRoleId,
                     ConcurrencyStamp = readerRoleId,
+                    Name = "Reader",
                     NormalizedName = "Reader".ToUpper(),
 
                 },
                 new IdentityRole
                 {
                     Id = writerRoleId,
+                    Name = "Writer",
                     ConcurrencyStamp = writerRoleId,
                     NormalizedName = "Writer".ToUpper()
                 }
