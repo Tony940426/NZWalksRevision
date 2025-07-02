@@ -8,11 +8,20 @@ namespace NZWalks.API.Controllers
     [ApiController]
     public class ImagesController : ControllerBase
     {
+        const int maxFileLength = 10485760;
+
         [HttpPost]
         [Route("Upload")]
         public async Task<IActionResult> Upload([FromForm] ImageUploadRequestDto request)
         {
+            ValidateFileUpload(request);
 
+            if (ModelState.IsValid)
+            {
+
+            }
+
+            return BadRequest(ModelState);
         }
 
         private void ValidateFileUpload(ImageUploadRequestDto request)
@@ -21,7 +30,12 @@ namespace NZWalks.API.Controllers
 
             if (!allowedExtensions.Contains(Path.GetExtension(request.File.FileName)))
             {
-                ModelState.AddModelError("file,", "Unsupported file extension")
+                ModelState.AddModelError("file,", "Unsupported file extension");
+            }
+
+            if (request.File.Length > maxFileLength)
+            {
+                ModelState.AddModelError("file", "File size more than 10mb, please upload a smaller size file.");
             }
         }
     }
