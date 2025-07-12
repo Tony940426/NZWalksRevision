@@ -177,3 +177,16 @@ C:\Users\food9\Coding Projects\NZWalks\NZWalks\NZWalks.API\bin\Debug\net8.0\Micr
 C:\Users\food9\Coding Projects\NZWalks\NZWalks\NZWalks.API\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\food9\Coding Projects\NZWalks\NZWalks\NZWalks.API\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\food9\Coding Projects\NZWalks\NZWalks\NZWalks.API\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\food9\Coding Projects\NZWalks\NZWalks\NZWalks.API\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\food9\Coding Projects\NZWalks\NZWalks\NZWalks.API\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\food9\Coding Projects\NZWalks\NZWalks\NZWalks.API\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\food9\Coding Projects\NZWalks\NZWalks\NZWalks.API\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\food9\Coding Projects\NZWalks\NZWalks\NZWalks.API\bin\Debug\net8.0\Serilog.dll
+C:\Users\food9\Coding Projects\NZWalks\NZWalks\NZWalks.API\bin\Debug\net8.0\Serilog.AspNetCore.dll
+C:\Users\food9\Coding Projects\NZWalks\NZWalks\NZWalks.API\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+C:\Users\food9\Coding Projects\NZWalks\NZWalks\NZWalks.API\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+C:\Users\food9\Coding Projects\NZWalks\NZWalks\NZWalks.API\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+C:\Users\food9\Coding Projects\NZWalks\NZWalks\NZWalks.API\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+C:\Users\food9\Coding Projects\NZWalks\NZWalks\NZWalks.API\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+C:\Users\food9\Coding Projects\NZWalks\NZWalks\NZWalks.API\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+C:\Users\food9\Coding Projects\NZWalks\NZWalks\NZWalks.API\bin\Debug\net8.0\Serilog.Sinks.File.dll
