@@ -14,7 +14,7 @@ namespace NZWalks.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class RegionsController : ControllerBase
     {
         private readonly NZWalksDbContext dbContext;
@@ -46,18 +46,6 @@ namespace NZWalks.API.Controllers
 
             var regionsDto = mapper.Map<List<RegionDto>>(regionsDomain);
 
-            //--Auto Mapper saves you from doing the below step--
-            //var regionsDto = new List<RegionDto>();
-            //foreach (var region in regionsDomain)
-            //{
-            //    regionsDto.Add(new RegionDto()
-            //    {
-            //        Id = region.Id,
-            //        Name = region.Name,
-            //        Code = region.Code,
-            //        RegionImageUrl = region.RegionImageUrl
-            //    });
-            //}
             logger.LogInformation($"Finished GetAllRegions request with data: {JsonSerializer.Serialize(regionsDomain)}");
             return Ok(regionsDto);
         }
