@@ -68,7 +68,7 @@ namespace NZWalks.API.Controllers
 
         [HttpPost]
         [ValidateModel]
-        [Authorize(Roles = "Writer")]
+        //[Authorize(Roles = "Writer")]
         public async Task<IActionResult> CreateAsync([FromBody] AddRegionRequestDto addRegionRequestDto)
         {
             if (ModelState.IsValid)
@@ -79,7 +79,7 @@ namespace NZWalks.API.Controllers
 
                 var regionDto = mapper.Map<RegionDto>(regionDomainModel);
 
-                return CreatedAtRoute(nameof(GetByIdAsync), new { id = regionDomainModel.Id }, regionDto);
+                return CreatedAtRoute("GetRegionByIdAsync", new { id = regionDomainModel.Id }, regionDto);
 
             }
             else
